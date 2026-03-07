@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators</title>
+    <style>
+        p {
+            color: red
+        }
+
+        span {
+            color: rgb(12, 12, 88);
+        }
+    </style>
+</head>
+
+<body>
+    <h3>1. Arithmetic Operators</h3>
+
+    <p>Enter First Number - <span id="numone"></span></p>
+    <p>Enter Second Number - <span id="numtwo"></span></p>
+    <p>Addition - <span id="add"></span></p>
+    <p>Subtraction - <span id='sub'></span></p>
+    <p>Multipliaction - <span id="mul"></span></p>
+    <p>Division - <span id="division"></span></p>
+    <p>Modulus - <span id="modulus"></span></p>
+
+
+    <h3>2. Comparision Operators</h3>
+
+    <p>Enter First Number - <span id="numone1"></span></p>
+    <p>Enter Second Number - <span id="numtwo2"></span></p>
+    <p>Is the first number greater than second - <span id="greater"></span></p>
+    <p>Is the second number less than second - <span id='less'></span></p>
+    <p>Are the two numbers equals - <span id="equal"></span></p>
+
+    <h3>3. Logical Operators</h3>
+
+    <input type="number" id="mathId" placeholder="Enter Math Score">
+    <input type="number" id="sciId" placeholder="Enter Science Score">
+    <button type="submit" onclick="logical()">Click Me</button>
+    <p>Enter Math Score - <span id="math"></span></p>
+    <p>Enter Science Score - <span id="sci"></span></p>
+    <p>Scolorship Eligibility - <span id="eligibility"></span></p>
+
+    <h3>4. Assignment Operators</h3>
+
+    <p>Initial value of x - <span id="xval"></span></p>
+    <p>After adding 5 - <span id="add5"></span></p>
+    <p>After multiplying by 3 - <span id="mul3"></span></p>
+    <p>After subtracting by 10 - <span id='sub10'></span></p>
+    <p>After dividing by 2 - <span id="div2"></span></p>
+    <p>Modulus with 3 - <span id="mod3"></span></p>
+
+
+    <h3>5. operator precendence</h3>
+
+    <p>10+3*5 = <span id="res"></span></p>
+    <p>(10+3)*5 = <span id="res1"></span></p>
+    <p>20/2+3 = <span id="res2"></span></p>
+    <p>20/(2+3) - <span id='res3'></span></p>
+
+    <h3>6. Combined Example</h3>
+    <input type="number" id="lengthId" placeholder="Enter the Length">
+    <input type="number" id="widthId" placeholder="Enter the Width">
+    <button type="submit" onclick="combined()">Click Me</button>
+
+    <p>Enter length - <span id="length"></span></p>
+    <p>Enter Width - <span id="wid"></span></p>
+    <p>perimeter - <span id="perimeter"></span></p>
+    <p>Area - <span id='area'></span></p>
+    <p>Is perimeter greater than area - <span id="greaterthan"></span></p>
+
+    <h3>7. Complex Logical and comparison Operatios</h3>
+    <input type="number" id="ageId" placeholder="Enter the Age">
+    <select name="citizenshipnm" id="citizenship">
+        <!-- <option value="no" true>--Select Option--</option> -->
+        <option value="true">True</option>
+        <option value="false">False</option>
+    </select>
+    <button type="submit" onclick="CheckVote()">Click Me</button>
+
+    <p>Enter Age - <span id="age"></span></p>
+    <p>Are you in citizen - <span id="citizen"></span></p>
+    <p>Eligible to vote - <span id='vote'></span></p>
+
+    <h3>8. BMI Calculator</h3>
+    <input type="number" id="htId" placeholder="Enter the Height(m)">
+    <input type="number" id="wtId" placeholder="Enter the Weight(Kg)">
+    <button type="submit" onclick="BMI()">Click Me</button>
+
+    <p>Enter Heigth(m) - <span id="ht"></span></p>
+    <p>Enter Weight(Kg) - <span id="wt"></span></p>
+    <p>BMI - <span id="bmi"></span></p>
+    <p>Category - <span id='cat'></span></p>
+
+    <h3>9. Even or Odd</h3>
+    <input type="number" id="numId" placeholder="Enter the Number">
+    <button type="submit" onclick="EvenOdd()">Click Me</button>
+
+    <p>Enter Number - <span id="num"></span></p>
+    <p>The number is - <span id="evenodd"></span></p>
+
+  <h3>10. Shopping Discount</h3>
+    <input type="number" id="totalId" placeholder="Enter the Total Shopping Amount">
+    <button type="submit" onclick="TotalDisAmt()">Click Me</button>
+
+    <p>Enter Total Amount - <span id="amt"></span></p>
+    <p>Discount Total - <span id="disamt"></span></p>
+
+
+
+    <script>
+        // n1 = Number(prompt("Enter number one"))
+        // console.log("Enter the first number", n1);
+        // document.getElementById('numone').textContent = n1
+        // n2 = Number(prompt("Enter number Two"))
+        // console.log("Enter the second number", n2);
+        // document.getElementById('numtwo').textContent = n2
+        // document.getElementById('add').textContent = (n1) + (n2)
+        // console.log('Addition', (n1 + n2))
+        // document.getElementById('sub').textContent = (n1) - (n2)
+        // console.log('subtraction', (n1 - n2))
+        // document.getElementById('mul').textContent = (n1) * (n2)
+        // console.log('Multiplication', (n1 * n2))
+        // document.getElementById('division').textContent = (n1) / (n2)
+        // console.log('division', (n1 / n2))
+        // document.getElementById('modulus').textContent = (n1) % (n2)
+        // console.log('modulus', (n1 % n2))
+
+        // comparision opearator
+        // console.log("Enter the first number", n1);
+        // document.getElementById('numone1').textContent = n1
+
+        // console.log("Enter the second number", n2);
+        // document.getElementById('numtwo2').textContent = n2
+
+        // if (n1 > n2) {
+        //     console.log(n1, 'is greater than ', n2);
+        //     document.getElementById('greater').textContent = (n1 > n2)
+        // }
+        // else {
+        //     document.getElementById('greater').textContent = false
+        // }
+        // if (n1 < n2) {
+        //     console.log(n1, 'is less than ', n2);
+        //     document.getElementById('less').textContent = (n1 < n2)
+        // }
+        // else {
+        //     document.getElementById('less').textContent = false
+        // }
+        // if (n1 == n2) {
+        //     console.log(n1, 'both are equal ', n2);
+        //     document.getElementById('equal').textContent = (n1 == n2)
+        // }
+        // else {
+        //     document.getElementById('equal').textContent = false
+        // }
+
+        // logical operator
+        function logical() {
+            m = document.getElementById('mathId').value;
+            console.log('math value is ', m)
+            s = document.getElementById('sciId').value;
+            console.log('science value is ', s)
+
+            document.getElementById('math').textContent = m
+            document.getElementById('sci').textContent = s
+            if (m >= 90 && s >= 85) {
+                document.getElementById('eligibility').textContent = true
+                console.log(true)
+            }
+            else {
+                document.getElementById('eligibility').textContent = false
+                console.log(false)
+            }
+        }
+
+        // Assignment operator
+        var x = 10;
+        document.getElementById('xval').textContent = x;
+        console.log('x val', x)
+        x = x + 5;
+        document.getElementById('add5').textContent = x;
+        x = x * 3;
+        document.getElementById('mul3').textContent = x;
+        x = x - 10;
+        document.getElementById('sub10').textContent = x;
+        x = x / 2;
+        document.getElementById('div2').textContent = x;
+        x = x % 3;
+        document.getElementById('mod3').textContent = x;
+
+
+        //operator precendence
+        let result = 10 + 3 * 5
+        console.log('10+3*5 = ', result);
+        document.getElementById('res').textContent = result;
+        let result1 = (10 + 3) * 5
+        console.log('(10+3)*5 = ', result1)
+        document.getElementById('res1').textContent = result1;
+        let result2 = 20 / 2 + 3
+        console.log('20/2+3 = ', result2)
+        document.getElementById('res2').textContent = result2;
+        let result3 = 20 / (2 + 3)
+        console.log('20/(2+3) = ', result3)
+        document.getElementById('res3').textContent = result3;
+
+        //Combined Example
+        function combined() {
+            l = Number(document.getElementById('lengthId').value);
+            console.log('length value is ', l)
+            w = Number(document.getElementById('widthId').value);
+            console.log('width value is ', w)
+
+            document.getElementById('length').textContent = l
+            document.getElementById('wid').textContent = w
+            perimeter = (2 * (l + w));
+            console.log('perimeter', perimeter)
+            document.getElementById('perimeter').textContent = perimeter
+            area = l * w
+            document.getElementById('area').textContent = area
+            console.log('area', area)
+
+            if (perimeter > area) {
+                document.getElementById('greaterthan').textContent = true
+            }
+            else {
+                document.getElementById('greaterthan').textContent = false
+            }
+        }
+
+        //complex logical and conparison operation
+        function CheckVote() {
+            age = Number(document.getElementById('ageId').value);
+            console.log('age value is ', age)
+            citizenship = (document.getElementById('citizenship').value);
+
+            console.log('citizenship value is ', citizenship)
+
+            document.getElementById('age').textContent = age
+            document.getElementById('citizen').textContent = citizenship
+
+            if (age >= 18 && citizenship == 'true') {
+                document.getElementById('vote').textContent = true
+            }
+            else {
+                document.getElementById('vote').textContent = false
+            }
+        }
+
+        //BMI Calculator
+        function BMI() {
+            ht = parseFloat(document.getElementById('htId').value);
+            console.log('height value is ', ht)
+            wt = parseFloat(document.getElementById('wtId').value);
+            console.log('weight value is ', wt)
+
+            document.getElementById('ht').textContent = ht
+            document.getElementById('wt').textContent = wt
+            let bmi = wt / (ht * ht)
+            document.getElementById('bmi').textContent = wt
+            console.log('bmi', bmi)
+
+            if (bmi < 18.5) {
+                document.getElementById('cat').textContent = 'Under Weight'
+            }
+            else if (bmi >= 18.5 && bmi < 24.9) {
+                document.getElementById('cat').textContent = 'Normal Weight'
+            }
+            else if (bmi >= 25 && bmi < 29.9) {
+                document.getElementById('cat').textContent = 'Over Weight'
+            }
+            else if (bmi >= 30) {
+                document.getElementById('cat').textContent = 'Obesity'
+            }
+        }
+
+        //Even or Odd
+        function EvenOdd() {
+            let num = parseInt(document.getElementById('numId').value);
+            console.log('num value is ', num)
+             document.getElementById('num').textContent =num
+             let val=num%2
+             console.log('mod val',val)
+             if(val==0)
+             {
+                document.getElementById('evenodd').textContent ='Even'
+             }
+             else{
+                 document.getElementById('evenodd').textContent ='Odd'
+             }
+        }
+
+  function TotalDisAmt() {
+            let amt = parseFloat(document.getElementById('totalId').value);
+            console.log('total value is ', amt)
+            document.getElementById('amt').textContent=amt;
+            var total=0;
+            if(amt>100){
+                 disamt=amt*0.1;
+                 console.log('disamt',disamt)
+                 total=amt-disamt;
+            }
+                    document.getElementById('disamt').textContent=total
+  }
+
+    </script>
+
+</body>
+
+</html>
