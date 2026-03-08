@@ -92,7 +92,7 @@ for (let k = 1; k <= 50; k++) {
 // if (no <= 1) {
 //     console.log(no, 'is not prime number')
 // } else {
-//     for (let i = 2; i < no / 2; i++) {
+//     for (let i = 2; i <= no / 2; i++) {
 //         if (no % i == 0) {
 //             isPrime = false;
 //             break;
@@ -228,11 +228,29 @@ console.log('sum of odd number', oddSum);
 // }
 
 //16. Leap year check
-let year = parseInt(prompt("Enter the Year"));
-if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0 && year % 100 === 0)) {
-    console.log('Leap year ', year);
-} else {
-    console.log('Not Leap year ', year);
-}
+// let year = parseInt(prompt("Enter the Year"));
+// if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0 && year % 100 === 0)) {
+//     console.log('Leap year ', year);
+// } else {
+//     console.log('Not Leap year ', year);
+// }
 
 //17. find divisors of a number
+
+let no1 = parseInt(prompt("Enter number to find divisors"));
+console.log('Enter number to find divisors ', no1)
+var divisors = [1];
+if (no1 > 1) {
+    for (let i = 2; i <= no1 / 2; i++) {
+        if (no1 % i == 0) {
+           divisors.push(i);
+        }
+    }
+}
+else{
+    alert('enter the number above 1')
+}
+
+ console.log('divisors of ',no1,' number -',divisors)
+
+ //18. 
