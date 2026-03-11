@@ -10,13 +10,11 @@ function countVowelsinSTR(str) {
             count++
         }
     }
-
-    return count
+    console.log('Vowels count: ',count) 
 }
 
 const countVOfstr = countVowelsinSTR('Hello World')
-
-console.log(countVOfstr, "countVOfstr")
+// console.log(countVOfstr, "countVOfstr")
 
 //2. palindrome checker
 
