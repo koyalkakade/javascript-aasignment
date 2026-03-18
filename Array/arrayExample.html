@@ -93,6 +93,7 @@
         }
         function Reset() {
             marksArray = []
+            document.querySelector('#resultMarks').innerHTML = ''
         }
         function Calculate() {
             // totalMarks = 0
@@ -146,7 +147,7 @@
         <div class="container w-75 rounded m-5 p-3" style="background-color: rgb(223, 223, 223); height: 300px;">
             <h2>Assignment 3 . Search in food</h2>
             <div class="container">
-                <p>Guess the ingredient of Panner Tikka Masala</p>
+                <p>Guess the ingredient of Paneer Tikka Masala</p>
                 <input type="text" id="inputFood" />
                 <button class="btn btn-primary" onclick="SearchFood()">Search</button>
             </div>
@@ -156,52 +157,154 @@
 
     <script>
         FoodArray = ['Paneer', 'Paneer masala', 'Tomato', 'Capsicum', 'Onion', 'Curd', 'Ginger-garlic paste', 'oil/ butter', 'salt', 'Coriander', 'Red chili powder', 'Garam masala']
-     function SearchFood(){
-        inputFoodElmt = document.querySelector('#inputFood')
-        ingredient = inputFoodElmt.value
+        function SearchFood() {
+            inputFoodElmt = document.querySelector('#inputFood')
+            ingredient = inputFoodElmt.value
 
-        // for (i = 0; i < FoodArray.length; i++) {
-        //     console.log(FoodArray[i])
-        //     if (FoodArray[i].toLowerCase() == ingredient.toLowerCase()) {
-        //         document.querySelector('#resultFood').innerHTML = FoodArray[i]
-        //         break;
+            // for (i = 0; i < FoodArray.length; i++) {
+            //     console.log(FoodArray[i])
+            //     ing=FoodArray[i].toLowerCase()
+            //     if (ing == ingredient.toLowerCase()) {
+            //         document.querySelector('#resultFood').innerHTML = FoodArray[i]
+            //         break;
+            //     } else {
+            //         document.querySelector('#resultFood').innerHTML = 'Not Found'
+            //     }
+            // }
+
+            ingFromArray = FoodArray.find((ing) => ing.toLowerCase() == ingredient.toLowerCase())
+            console.log(ingFromArray)
+            if (ingFromArray) {
+                document.querySelector('#resultFood').innerHTML = ingFromArray
+            } else {
+                document.querySelector('#resultFood').innerHTML = 'Not Found'
+            }
+            inputFoodElmt.value = '';
+
+        }
+    </script>
+
+
+    <section>
+        <div class="container w-75 rounded m-5 p-3" style="background-color: rgb(223, 223, 223); height: 300px;">
+            <h2>Assignment 4 Filter odd even Numbers</h2>
+            <div class="container">
+                <input type="number" id="inputNum11" placeholder="Enter a number" />
+                <button class="btn btn-primary" onclick="addNum()">Add Number</button>
+                <button class="btn btn-primary" onclick="showEven()">Show Even</button>
+                <button class="btn btn-primary" onclick="showOdd()">Show Odd</button>
+                <button class="btn btn-primary" onclick="clearNum()">Clear</button>
+            </div>
+            <div class="container">
+                <div>
+                    <span id="showAddNum"></span><br>
+                </div>
+                <h3>Even Number</h3>
+                <input type="text" class="w-75" id="evenNumId" />
+                <h3>Odd Number</h3>
+                <input type="text" class="w-75" id="oddNumId" />
+            </div>
+        </div>
+    </section>
+
+    <script>
+        //  numArray = [45, 76, 98, 90, 54, 23, 14, 62, 51]
+        inputNumber1 = document.querySelector('#inputNum11')
+        numArray = []
+        function addNum() {
+            inputNumber = inputNumber1.value
+            inputNumber = parseInt(inputNumber)
+            if (isNaN(inputNumber)) {
+                alert("Enter valid Number")
+            } else {
+                numArray.push(inputNumber)
+                //console.log(numArray)
+            }
+            inputNumber1.value = ''
+            document.querySelector('#showAddNum').innerHTML = numArray
+        }
+        // evenNumArray = []
+        // oddNumArray = []
+
+        // for (i = 0; i < numArray.length; i++) {
+        //     if (numArray[i] % 2 == 0) {
+        //         evenNumArray.push(numArray[i])
         //     } else {
-        //         document.querySelector('#resultFood').innerHTML = 'Not Found'
+        //         oddNumArray.push(numArray[i])
         //     }
         // }
 
-        ingFromArray = FoodArray.find((ing) => ing.toLowerCase() == ingredient.toLowerCase())
-        console.log(ingFromArray)
-        if (ingFromArray) {
-            document.querySelector('#resultFood').innerHTML = ingFromArray
-        } else {
-            document.querySelector('#resultFood').innerHTML = 'Not Found'
+        EvenNumArrayFilter = []
+        OddNumArrayFilter = []
+        function showEven() {
+            EvenNumArrayFilter = numArray.filter((number) => number % 2 == 0)
+            // const inputElement = document.getElementById('evenNumId');
+            // const arrayAsString = EvenNumArrayFilter.join(', ');
+            // inputElement.value = arrayAsString;
+            document.getElementById('evenNumId').value = EvenNumArrayFilter.toString()
+            //console.log('EvenNumArrayFilter', EvenNumArrayFilter.toString())
         }
-
-     }
+        function showOdd() {
+            OddNumArrayFilter = numArray.filter((number) => number % 2 != 0)
+            document.getElementById('oddNumId').value = OddNumArrayFilter.toString()
+        }
+        function clearNum() {
+            document.getElementById('evenNumId').value = ''
+            document.getElementById('oddNumId').value = ''
+            inputNumber1.value = ''
+            document.querySelector('#showAddNum').innerHTML = ''
+        }
     </script>
 
-    <h2>Assignment 4 Filter odd even Numbers</h2>
+
+    <section>
+        <div class="container w-75 rounded m-5 p-3" style="background-color: rgb(223, 223, 223); height: 300px;">
+            <h2>Sort Alphabetically</h2>
+            <div class="container">
+                <input type="text" id="inputName" placeholder="Enter a name" />
+                <button class="btn btn-primary" onclick="addName()">Add Name</button>
+                <button class="btn btn-primary" onclick="sortName()">Sort</button>
+                <button class="btn btn-primary" onclick="resetName()">Reset</button>
+            </div>
+            <div class="container">
+                <div>
+                    <span id="showAddName"></span><br>
+                </div>
+                <div>
+                    <input type="text" class="w-75" id="sortNmId" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <script>
-        numArray = [45,76,98,90,54,23,14,62,51]
-        evenNumArray = []
-        oddNumArray = []
-        for(i=0;i<numArray.length;i++){
-            if(numArray[i]% 2 == 0){
-                evenNumArray.push(numArray[i])
-            }else{
-                oddNumArray.push(numArray[i])
+        inputNm = document.querySelector('#inputName')
+        nameArray = []
+        function addName() {
+            NameInput = parseInt(inputNm.value);
+            if (isNaN(NameInput)) {
+                nameArray.push(inputNm.value)
+                console.log(numArray)
+            } else {
+                alert("Enter valid Name")
             }
+            inputNm.value = ''
+            document.querySelector('#showAddName').innerHTML = nameArray
+
         }
 
-        EvenNumArrayFilter =numArray.filter((number)=> number% 2 == 0)
-        OddNumArrayFilter = numArray.filter((number)=>number % 2!= 0)
+        function sortName() {
+            const lowerCaseArray = nameArray.map(item => item.toLowerCase());
+            document.getElementById('sortNmId').value = lowerCaseArray.sort();
+        }
+
+        function resetName() {
+            nameArray = []
+            document.querySelector('#showAddName').innerHTML = ''
+            document.getElementById('sortNmId').value = ''
+        }
     </script>
-
-
-    <h2>Sort Alphabetically</h2>
-
-
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
