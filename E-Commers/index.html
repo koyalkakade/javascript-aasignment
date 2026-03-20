@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>E-Commerce</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
@@ -30,7 +33,9 @@
                     </li>
                 </ul>
                 <div class="d-flex" role="search">
-                    <a href="./cart.html" class="nav-link">Cart<sup class="badge rounded-pill text-bg-danger" id="cartLength">0</sup></a>
+                    <a href="./cart.html" class="nav-link"><i class="fa-solid fa-cart-arrow-down"
+                            style="color: blue;"></i><sup class="badge rounded-pill text-bg-danger"
+                            id="cartLength">0</sup></a>
                     <!-- add icon for basket from  fontAwesome  -->
                 </div>
             </div>
@@ -52,7 +57,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btnClose"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="btnClose"></button>
                 </div>
                 <div class="modal-body">
                     <div>
@@ -65,14 +71,29 @@
                             <label for="description">Description</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="category" placeholder="category">
-                            <label for="category">Category</label>
+                            <!-- <input type="text" class="form-control" id="category" placeholder="category"> -->
+                            <!-- <label for="category">Category</label> -->
                             <!-- add select options for category  -->
+                             Category
+                            <select id="category" class="p-2">
+                                <option value="">Select Options</option>
+                                <option value="Electronics">Electronics</option>
+                                <option aria-valuemax="Kitchen Accessories">Kitchen Accessories</option>
+                            </select>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="brand" placeholder="brand">
-                            <label for="brand">Brand</label>
+                            <!-- <input type="text" class="form-control" id="brand" placeholder="brand"> -->
+                            <!-- <label for="brand">Brand</label> -->
                             <!-- add select option for brand  -->
+                               Brand
+                            <select id="brand" class="p-2">
+                                <option value="">Select Options</option>
+                                <option value="Bosh">Bosh</option>
+                                <option value="Howkings">Howkings</option>
+                                <option value="Sony">Sony</option>
+                                <option value="Canon">Canon</option>
+                                <option value="Samsung">Samsung</option>
+                            </select>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control" id="price" placeholder="price">

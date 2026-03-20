@@ -87,7 +87,7 @@ function AddNewProduct() {
         console.log('after push newProduct', getProd)
         saveToLocal(getProd)
     }
-   // renderProducts()
+    // renderProducts()
 
     titleElmt.value = ''
     descriptionElmt.value = ''
@@ -111,22 +111,43 @@ function addToCart(id) {
 
     newCartItem = getProd[findIndex1]
 
-    // create new object for id,name and price and new property as quantity only 
-    // Before add check that item is presnt or not in cart array 
+    // Before add check that item is presnt or not in cart array
     // if present increase quantity by 1
-    // add this object to cart
 
-    getCArtFromLocal.push(newCartItem)
-    saveCartToLocal(getCArtFromLocal)
-    console.log('getCArtFromLocal', getCArtFromLocal)
-    cartLengthElmt.textContent = getCArtFromLocal.length
+    productInCart = getCArtFromLocal.find((p, i) => p.product_id == newCartItem.id)
+
+    indexOfProdInCart = getCArtFromLocal.findIndex((p, i) => p.product_id == newCartItem.id)
+
+    if (indexOfProdInCart == -1) {
+
+        // create new object for product id, product name and product price 
+        // and new property as quantity of number ofproduct in cart only 
+        // product in cart new id 
+
+        newProdINCart = {
+            id: Date.now(),
+            product_id: newCartItem.id,
+            product_name: newCartItem.title,
+            product_price: newCartItem.price,
+            quantity_inCart: 1
+        }
+        // add this object to cart
+
+        // getCArtFromLocal.push(newCartItem)
+        getCArtFromLocal.push(newProdINCart)
+
+        saveCartToLocal(getCArtFromLocal)
+        console.log(getCArtFromLocal)
+        cartLengthElmt.textContent = getCArtFromLocal.length
+    } else {
+        getCArtFromLocal[indexOfProdInCart].quantity_inCart = productInCart.quantity_inCart + 1
+        saveCartToLocal(getCArtFromLocal)
+    }
 }
 
 
-
-
 window.addEventListener('DOMContentLoaded', () => {
- //localStorage.removeItem('b81');
+    //localStorage.removeItem('b81');
     getProd = getFromLocal()
 
     if (!getProd) {
