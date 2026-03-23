@@ -88,14 +88,14 @@
       }
     }
 
-    function addItem(q) {
-      let productInCart = cartFromLocal1.find((p, i) => i == q)
-      console.log('qObj', productInCart)
-      cartFromLocal1[q].quantity_inCart = productInCart.quantity_inCart + 1
-      console.log('cartFromLocal1[q].quantity_inCart', cartFromLocal1[q].quantity_inCart)
-      localStorage.setItem('Cart81', JSON.stringify(cartFromLocal1))
-      cartRender()
-    }
+    // function addItem(q) {
+    //   let productInCart = cartFromLocal1.find((p, i) => i == q)
+    //   console.log('qObj', productInCart)
+    //   cartFromLocal1[q].quantity_inCart = productInCart.quantity_inCart + 1
+    //   console.log('cartFromLocal1[q].quantity_inCart', cartFromLocal1[q].quantity_inCart)
+    //   localStorage.setItem('Cart81', JSON.stringify(cartFromLocal1))
+    //   cartRender()
+    // }
 
     cartRender()
 
