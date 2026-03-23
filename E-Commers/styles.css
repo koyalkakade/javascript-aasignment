@@ -1,0 +1,31 @@
+.clsFooter {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+    padding: 5px;
+    margin-top: 75px;
+}
+
+.footer-b {
+    color: white;
+    font-size: 30px;
+    margin-top: 22px;
+}
+.clsUL {
+    color: white;
+    list-style-type: none;
+    margin-top: -4px;
+}
+
+.footer-span {
+    color: red;
+}
+
+.clsSocial {
+    height: 50px;
+    margin-top: 27px;
+}
+
+.clsUL li {
+    margin: 10px;
+}

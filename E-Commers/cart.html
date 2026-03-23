@@ -25,7 +25,7 @@
     cartFromLocal1 = [];
     function cartRender() {
       cartFromLocal1 = JSON.parse(localStorage.getItem('Cart81'))
-      console.log('cartFromLocal1',cartFromLocal1)
+      console.log('cartFromLocal1', cartFromLocal1)
       document.getElementById('cartRender1').innerHTML = cartFromLocal1.map((pc, i) => `
       <tr>
       <th scope="row">${i + 1}</th>
@@ -80,17 +80,19 @@
       console.log('qObj', productInCart)
       // productInCart.quantity_inCart = productInCart.quantity_inCart - 1
       // console.log('productInCart', productInCart)
-      cartFromLocal1[q].quantity_inCart=productInCart.quantity_inCart - 1
-       console.log('cartFromLocal1[q].quantity_inCart', cartFromLocal1[q].quantity_inCart)
-      localStorage.setItem('Cart81', JSON.stringify(cartFromLocal1))
-      cartRender()
+      if (productInCart.quantity_inCart > 1) {
+        cartFromLocal1[q].quantity_inCart = productInCart.quantity_inCart - 1
+        console.log('cartFromLocal1[q].quantity_inCart', cartFromLocal1[q].quantity_inCart)
+        localStorage.setItem('Cart81', JSON.stringify(cartFromLocal1))
+        cartRender()
+      }
     }
 
     function addItem(q) {
-       let productInCart = cartFromLocal1.find((p, i) => i == q)
+      let productInCart = cartFromLocal1.find((p, i) => i == q)
       console.log('qObj', productInCart)
-      cartFromLocal1[q].quantity_inCart=productInCart.quantity_inCart + 1
-       console.log('cartFromLocal1[q].quantity_inCart', cartFromLocal1[q].quantity_inCart)
+      cartFromLocal1[q].quantity_inCart = productInCart.quantity_inCart + 1
+      console.log('cartFromLocal1[q].quantity_inCart', cartFromLocal1[q].quantity_inCart)
       localStorage.setItem('Cart81', JSON.stringify(cartFromLocal1))
       cartRender()
     }
