@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        #errUserName {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-primary">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 col-md-6"></div>
+            <div class="col-12 col-md-6 p-3 bg-light rounded mt-5">
+                <!-- <form> -->
+                <div class="mb-3">
+                    <label for="InputUserName" class="form-label">User Name</label>
+                    <input type="text" class="form-control" id="InputUserName" required>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errUserName">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="InputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="InputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="InputPassword1" required>
+                </div>
+                <div class="mb-3">
+                    <label for="ReInputPassword1" class="form-label">Repeat Password</label>
+                    <input type="password" class="form-control" id="ReInputPassword1" required>
+                </div>
+                <button class="btn btn-primary" onclick="register()">Register</button>
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        userNameElement = document.querySelector('#InputUserName')
+        emailElement = document.querySelector('#InputEmail1')
+        passwordElement = document.querySelector('#InputPassword1')
+        rePasswordElement = document.querySelector('#ReInputPassword1')
+        getUser = [];
+
+        function saveToLocal(p) {
+            localStorage.setItem('UserInfo', JSON.stringify(p))
+        }
+
+        function getFromLocal() {
+            return JSON.parse(localStorage.getItem('UserInfo') || '[]')
+        }
+
+        function register() {
+            console.log("****************")
+            userName = userNameElement.value
+            email = emailElement.value
+            password = passwordElement.value
+            rePassword = rePasswordElement.value
+
+            speChars = `!@#$%^&*()_{""}`
+
+            if (userName.trim().length > 6) {
+                if (!userName.includes(speChars)) {
+                    // email validation  
+                    var re = /\S+@\S+\.\S+/;
+                    testEmailVal = re.test(email);
+                    console.log('testEmailVal', testEmailVal);
+                    if (testEmailVal == true) {
+                        // password validation 
+                        if (password.trim().length > 8) {
+                            //  recheck password 
+                            if (password == rePassword) {
+                                // create object of user 
+                                user = {
+                                    name: userName,
+                                    email: email,
+                                    password: password
+                                }
+                                //  localStorage save 
+                                const getUser = getFromLocal()
+                                console.log('getUser', getUser)
+                                getUser.push(user)
+                                console.log('after push user', getUser)
+                                saveToLocal(getUser)
+
+                                // naviaget to login page 
+                                document.querySelector('#InputUserName').value = ''
+                                document.querySelector('#InputEmail1').value = ''
+                                window.location.href = './Login.html'
+                                // alert("Register success")
+                            }
+                            else {
+                                alert('Not match password..')
+                            }
+                        }
+                        else {
+                            alert('Please enter 8 or more character password...')
+                        }
+                    }
+                    else {
+                        alert('Invalid Email...')
+                    }
+                } else {
+                    alert("username must not include special character")
+                }
+            } else {
+                // alert(" should contain at least 6 characters")
+                erOne = " should contain at least 6 characters"
+                document.getElementById("errUserName").style.display = 'block'
+                document.getElementById("errUserName").innerHTML = `${erOne} 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`
+            }
+        }
+
+
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
