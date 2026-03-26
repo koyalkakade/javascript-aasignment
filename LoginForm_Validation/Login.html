@@ -14,7 +14,9 @@
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-12 col-md-6"></div>
+            <div class="col-12 col-md-6">
+                <img src="./assets/login.jfif" style="height: 212px;margin-top: 75px;">
+            </div>
             <div class="col-12 col-md-6 p-3 bg-light rounded mt-5">
                 <!-- <form> -->
                 <div class="mb-3">
@@ -27,6 +29,7 @@
                     <input type="password" class="form-control" id="InputPassword1">
                 </div>
                 <button class="btn btn-primary" onclick="login()">Login</button>
+                <button class="btn btn-primary" onclick="register()">Register Here</button>
                 <!-- </form> -->
             </div>
         </div>
@@ -57,11 +60,15 @@
                         alert("Email Not Registered")
                     }
                 } else {
-                    alert("Not Registered")
+                    alert("Please Enter Valid Email")
                 }
             } else {
                 alert("Please Enter emali address")
             }
+        }
+
+         function register(){
+             window.location.href = './Register.html'
         }
     </script>
 
