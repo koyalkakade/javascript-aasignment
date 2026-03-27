@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Pop-Pup</title>
+</head>
+
+<body>
+    <button id="openModalBtn" style="margin:200px 200px;background-color: rgb(216, 244, 171);font-size: xx-large;">Open Modal</button>
+
+    <dialog id="myModal">
+        <button id="closeModalBtn" style="margin-left: 185px;">X</button>
+        <h2>Modal Title</h2> 
+        <p>This is the content of the modal.</p>
+       
+    </dialog>
+
+    <script>
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const myModal = document.getElementById('myModal');
+
+        openModalBtn.addEventListener('click', () => {
+            myModal.showModal();
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            myModal.close();
+        });
+    </script>
+</body>
+
+</html>

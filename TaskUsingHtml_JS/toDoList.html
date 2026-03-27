@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To_Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container w-75 rounded m-5 p-3" style="background-color: rgb(247, 242, 242); height: 300px;">
+        <h2 style="text-align: center;">To Do List</h2>
+        <input type="text" id="taskId" placeholder="Enter task name">
+        <button class="btn btn-primary ms-2 mb-2" onclick="addtask()">Add Task</button>
+        <div class="container">
+            <table class="table">
+                <tbody id="resultToDo"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        toDos = []
+
+        function renderToDos(newTodo) {
+            /*document.querySelector('#resultToDo').innerHTML = toDos.map((task, index) => `
+                                    <tr>
+      <th scope="row" style="width:100px">${index + 1}</th>
+      <td style="width:350px;text-align:left">${task}</td>
+      <td> <button class='btn btn-warning' id="status${index}" onclick='statusTask("status${index}")'>Not Completed</button></td>
+      <td> <button class='btn btn-danger' onclick='deleteTask(${index})'>X</button></td>
+    </tr>
+        `).join('')*/
+
+         let elementCount = document.querySelector('#resultToDo').childElementCount;
+
+        var newElement = `
+                                    <tr id="todo${elementCount}">
+      <th scope="row" style="width:100px">${elementCount + 1}</th>
+      <td style="width:350px;text-align:left">${newTodo}</td>
+      <td> <button class='btn btn-warning' id="status${elementCount}" onclick='statusTask("status${elementCount}")'>Not Completed</button></td>
+      <td> <button class='btn btn-danger' onclick='deleteTask("todo${elementCount}")'>X</button></td>
+    </tr>
+        `;
+        const parser = new DOMParser();
+        const wrappedTrString = `<table><tbody>${newElement}</tbody></table>`;
+        const doc = parser.parseFromString(wrappedTrString, "text/html"); //
+        const trElement = doc.querySelector('tr'); //
+        document.querySelector('#resultToDo').appendChild(trElement);
+        }
+
+        function addtask() {
+            inputToDoElmt = document.querySelector('#taskId')
+            newToDo = inputToDoElmt.value
+           // console.log(inputToDoElmt.value)
+           /* if (inputToDoElmt.value != '') {
+                toDos = []
+                toDos.push(newToDo)
+            }*/
+             console.log(toDos)
+            renderToDos(newToDo)
+            inputToDoElmt.value = ''
+           // console.log(inputToDoElmt.value)
+
+        }
+
+        function deleteTask(rowId) {
+           const row = document.getElementById(rowId);
+            if (row) {
+                // The parentNode of a <tr> is usually a <tbody> or <thead>
+                const parent = row.parentNode;
+                console.log('parent',parent)
+                parent.removeChild(row);
+                const children = parent.children;
+                 console.log('children',children)
+                // 1. Iterate through the children and update sr no
+                for (const [index, child] of Array.from(children).entries()) {
+                    child.firstElementChild.innerHTML = index + 1;
+                }
+            } else {
+                console.log('Row with id ' + rowId + ' not found.');
+            }
+           // renderToDos()
+        }
+
+        function statusTask(ind){
+             getTask=document.getElementById(ind)
+             //console.log('getTask',getTask)
+             getTask.className='btn btn-success'
+             getTask.textContent='Completed'
+        }
+    </script>
+
+</body>
+
+</html>
