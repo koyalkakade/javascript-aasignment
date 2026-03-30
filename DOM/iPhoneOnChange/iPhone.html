@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .clsblue {
+            border-radius: 50%;
+            background-color: blue;
+            width: 30px;
+            height: 30px;
+        }
+
+        .clspink {
+            border-radius: 50%;
+            background-color: pink;
+            width: 30px;
+            height: 30px;
+        }
+
+        .clsBlack {
+            border-radius: 50%;
+            background-color: black;
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container d-flex m-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="./asstes/iPhone_14.webp" alt="Album Cover" id="imgId">
+                    <div class="overlay">
+                        <i class="fa-solid fa-circle-play"></i>
+                    </div>
+                    <div class="card-content mb-2 ms-2">
+                        <button class="btn btn-primary" id="phoneBtn">iPhone 14</button>
+                        <h4>iPhone_1$</h4>
+                        <span>Rating</span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span>3.0</span>
+                        <div class="d-flex mb-2">
+                            <div class="clsblue me-1" onclick="blue()"></div>
+                            <div class="clspink me-1" onclick="pink()"></div>
+                            <div class="clsBlack" onclick="black()"></div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" id="buttonId" ><i class="fa-solid fa-cart-arrow-down"></i>Add To
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function blue() {
+            document.getElementById("phoneBtn").style.backgroundColor = "blue";
+            document.getElementById("imgId").src = './asstes/iPhone_14.webp';
+            document.getElementById("buttonId").style.backgroundColor = "blue";
+        }
+        function pink() {
+            document.getElementById("phoneBtn").style.backgroundColor = "pink";
+            document.getElementById("imgId").src = './asstes/iPhone_14_pink.webp';
+            document.getElementById("buttonId").style.backgroundColor = "pink";
+        }
+        function black() {
+            document.getElementById("phoneBtn").style.backgroundColor = "black";
+            document.getElementById("imgId").src = './asstes/iPhone_14_black.webp';
+            document.getElementById("buttonId").style.backgroundColor = "black";
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
