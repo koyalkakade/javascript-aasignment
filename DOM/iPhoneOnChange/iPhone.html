@@ -30,14 +30,17 @@
             width: 30px;
             height: 30px;
         }
+          .checked {
+            color: orange;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="container d-flex m-5">
-        <div class="row">
-            <div class="col-md-3">
+    <div class="container d-flex m-5 justify-content-center">
+        <div class="row ms-5" >
+            <div class="col-md-4">
                 <div class="card">
                     <img src="./asstes/iPhone_14.webp" alt="Album Cover" id="imgId">
                     <div class="overlay">
@@ -46,20 +49,22 @@
                     <div class="card-content mb-2 ms-2">
                         <button class="btn btn-primary" id="phoneBtn">iPhone 14</button>
                         <h4>iPhone_1$</h4>
-                        <!-- <span>Rating</span>
+                        <span>Rating</span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
-                        <span>3.0</span> -->
+                        <span>3.0</span>
                         <div class="d-flex mb-2">
                             <div class="clsblue me-1" onclick="blue()"></div>
                             <div class="clspink me-1" onclick="pink()"></div>
                             <div class="clsBlack" onclick="black()"></div>
                         </div>
                         <div>
-                            <button class="btn btn-primary" id="buttonId" ><i class="fa-solid fa-cart-arrow-down"></i>Add To
+                            <button class="btn btn-primary" id="buttonId" >
+                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Add To
                                 Cart</button>
                         </div>
                     </div>
