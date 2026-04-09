@@ -4,7 +4,7 @@ const rowsPerPage = 5; // Number of rows per page
 let allData = [];
 let filteredData = [];
 
-
+//---------------fetch API---------------------------------
 async function fetchAPI() {
     const loader = document.getElementById('loader');
     loader.style.display = 'block'; // Show loader
@@ -21,6 +21,7 @@ async function fetchAPI() {
     }
 }
 
+//---------------render data on webpage---------------------
 function renderData() {
     const renderProject = document.querySelector('#renderPro');
     const start = (currentPage - 1) * rowsPerPage;
@@ -43,6 +44,7 @@ function renderData() {
     renderPagination();
 }
 
+//------------pegination code---------------------
 function renderPagination() {
     const pagination = document.getElementById('pagination');
     const totalPages = Math.ceil(filteredData.length / rowsPerPage);
@@ -88,25 +90,14 @@ function changePage(page) {
     renderData();
 }
 
+//-------adding loader---------------------------
 window.addEventListener('load', function () {
     document.getElementById('loader').style.display = 'none';
     fetchAPI();
 });
 
 
-// search function
-
-// InputValue = document.getElementById('searchInput')
-// InputValue.addEventListener('input', (e) => {
-//     searchInputValue = e.target.value
-//     allData = allData.filter((p) => p.ProjectName.toLowerCase().includes(searchInputValue.toLowerCase()))
-
-//     console.log(allData)
-//     renderData();
-// });
-
-
-// SEARCH LOGIC
+// ---------------search function--------------
 function searchByName() {
     query = document.getElementById('searchInput').value;
     //console.log('query', query)
